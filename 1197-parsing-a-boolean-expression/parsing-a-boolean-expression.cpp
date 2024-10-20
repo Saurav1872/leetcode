@@ -7,14 +7,14 @@ public:
 
 private:
     bool parse(const string& exp, int& i) {
-        if(exp[i] == 't') {
-            ++i;
-            return true;
-        }
-
         if(exp[i] == 'f') {
             ++i;
             return false;
+        }
+        
+        if(exp[i] == 't') {
+            ++i;
+            return true;
         }
 
         if(exp[i] == '!') {
