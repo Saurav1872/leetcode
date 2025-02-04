@@ -33,8 +33,6 @@ public:
                 if (curr->right)
                     q.push(curr->right);
             }
-            // if (rev)
-            //     reverse(currLevel.begin(), currLevel.end());
             ans.push_back(currLevel);
             rev = !rev;
         }
