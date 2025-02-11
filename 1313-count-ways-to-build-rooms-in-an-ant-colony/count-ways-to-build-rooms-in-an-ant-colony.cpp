@@ -45,14 +45,9 @@ private:
     long long nCr(int n, int r) {
         if (r > n)
             return 0;
-        // long long res = 1;
-        // for (int i = 0; i < r; i++) {
-        //     res = res * (n - i) % MOD;
-        //     res = res * pow(i + 1, MOD - 2) % MOD;
-        // }
-        // return res;
+        return fact[n] * invFact[r] % MOD * invFact[n - r] % MOD;   // works
 
-        return fact[n] * invFact[r] % MOD * invFact[n - r] % MOD;
+        // return (fact[n] / ((fact[r] * fact[n-r]) % MOD)) % MOD;      // fails
     }
 
     long long pow(long long base, long long exp) {
