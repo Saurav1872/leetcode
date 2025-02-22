@@ -11,15 +11,19 @@
  */
 class Solution {
 public:
-    TreeNode* recoverFromPreorder(string &traversal, int level = 0) {
+    TreeNode* recoverFromPreorder(string traversal) {
+        return recoverFromPreorder(traversal, 0);
+    }
+private:
+    TreeNode* recoverFromPreorder(string &traversal, int level) {
         if(traversal.length() == 0) return nullptr;
 
         int count = 0;
         int i = 0;
         while(i < traversal.length()) {
             if(traversal[i] == '-') {
-                count++;
-                i++;
+                ++count;
+                ++i;
             }
             else {
                 break;
@@ -39,6 +43,7 @@ public:
                     break;
                 }
             }
+
             TreeNode* node = new TreeNode(stoi(num));
             traversal = traversal.substr(i);
             node->left = recoverFromPreorder(traversal, level+1);
